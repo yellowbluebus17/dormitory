@@ -8,109 +8,33 @@
 </head>
 <body>
 
-  <div id="login-screen" class="screen">
-    <div class="logo-box">
-      <div class="icon-circle"></div>
-      <h2>Smart Dorm</h2>
-    </div>
-    
-    <div class="input-group">
-      <input type="email" placeholder="Email address">
-      <input type="password" placeholder="Password">
-    </div>
 
-    <button class="btn-primary" onclick="showScreen('dashboard-screen')">Log in</button>
-    <a href="#" class="forgot-link">Forgot password?</a>
-    
-    <div class="divider">or</div>
-    
-    <button class="btn-secondary">Create an account</button>
+  <div id="login-screen" class="screen">
+    <h2 style="text-align: center;">Smart Dorm</h2>
+    <input type="email" placeholder="Email address">
+    <input type="password" placeholder="Password">
+    <button onclick="showScreen('dashboard-screen')">Log in</button>
   </div>
 
   <div id="dashboard-screen" class="screen hidden">
-    <div class="header">
-      <div class="avatar"></div>
-      <div>
-        <h3>Hello, Balnur!</h3>
-        <p class="subtitle">Welcome back to Smart Dorm</p>
-      </div>
-    </div>
-
-    <div class="room-card">
-      <span class="room-icon"></span>
-      <div>
-        <strong>Your room</strong>
-        <p>Apartment 26, Room 2, Block 1</p>
-      </div>
-    </div>
-
-    <div class="grid-menu">
-      <div class="menu-item" onclick="showScreen('maintenance-screen')">
-        <span class="menu-icon"></span>
-        <span>Maintenance</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-icon"></span>
-        <span>Announcements</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-icon"></span>
-        <span>Laundry</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-icon">💬</span>
-        <span>Messages</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-icon"></span>
-        <span>Payments</span>
-      </div>
-      <div class="menu-item">
-        <span class="menu-icon"></span>
-        <span>Rules & info</span>
-      </div>
-    </div>
-
-    <div class="announcement-section">
-      <h4>Recent announcements</h4>
-      <div class="announcement-card">
-        <strong>Power outage</strong>
-        <p>There will be a planned power outage on September 23 from 10:00 to 14:00.</p>
-      </div>
+    <h3>Hello, Balnur!</h3>
+    <p>Welcome back to Smart Dorm</p>
+    <div class="card" onclick="showScreen('maintenance-screen')">
+      <b>Maintenance</b>
     </div>
   </div>
+
 
   <div id="maintenance-screen" class="screen hidden">
-    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Maintenance Request</button>
-    
-    <div class="info-banner">
-       Please describe the problem in detail and, if possible, add a photo.
-    </div>
-
-    <div class="form-group">
-      <label>Problem category</label>
-      <select>
-        <option>Select category</option>
-        <option>Plumbing (Сантехника)</option>
-        <option>Electricity (Электрика)</option>
-        <option>Furniture (Мебель)</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>Description</label>
-      <textarea rows="4" placeholder="Describe the issue"></textarea>
-    </div>
-
-    <div class="form-group">
-      <label>Add a photo (optional)</label>
-      <div class="upload-box">
-         Tap to add a photo
-      </div>
-    </div>
-
-    <button class="btn-primary" onclick="alert('Заявка отправлена!'); showScreen('dashboard-screen')">Submit</button>
+    <button onclick="showScreen('dashboard-screen')" style="width: auto; background: none; color: #333;">← Back</button>
+    <h3>Maintenance Request</h3>
+    <label>Problem category</label>
+    <select><option>Select category</option></select>
+    <label>Description</label>
+    <textarea placeholder="Describe the issue"></textarea>
+    <button onclick="alert('Заявка отправлена!'); showScreen('dashboard-screen')">Submit</button>
   </div>
+
   <script>
     function showScreen(screenId) {
       document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
