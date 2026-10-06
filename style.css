@@ -1,0 +1,54 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Dorm</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 20px; background: #f4f6f8; display: flex; justify-content: center; }
+    .screen { width: 100%; max-width: 360px; background: white; padding: 20px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .hidden { display: none; }
+    input, select, textarea, button { width: 100%; margin-top: 10px; padding: 12px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; }
+    button { background: #3A6073; color: white; border: none; font-weight: bold; cursor: pointer; }
+    .card { background: #eef4f8; padding: 15px; border-radius: 8px; margin-top: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <!-- Экран 1: Login -->
+  <div id="login-screen" class="screen">
+    <h2 style="text-align: center;">Smart Dorm</h2>
+    <input type="email" placeholder="Email address">
+    <input type="password" placeholder="Password">
+    <button onclick="showScreen('dashboard-screen')">Log in</button>
+  </div>
+
+  <!-- Экран 2: Dashboard -->
+  <div id="dashboard-screen" class="screen hidden">
+    <h3>Hello, Balnur!</h3>
+    <p>Welcome back to Smart Dorm</p>
+    <div class="card" onclick="showScreen('maintenance-screen')">
+      🛠️ <b>Maintenance</b>
+    </div>
+  </div>
+
+  <!-- Экран 3: Maintenance Request -->
+  <div id="maintenance-screen" class="screen hidden">
+    <button onclick="showScreen('dashboard-screen')" style="width: auto; background: none; color: #333;">← Back</button>
+    <h3>Maintenance Request</h3>
+    <label>Problem category</label>
+    <select><option>Select category</option></select>
+    <label>Description</label>
+    <textarea placeholder="Describe the issue"></textarea>
+    <button onclick="alert('Заявка отправлена!'); showScreen('dashboard-screen')">Submit</button>
+  </div>
+
+  <!-- Тот самый короткий JS для переключения страниц -->
+  <script>
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+      document.getElementById(screenId).classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
