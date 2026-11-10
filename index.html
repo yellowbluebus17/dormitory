@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- 1. Экран входа -->
   <div id="login-screen" class="screen">
     <div class="logo-box">
       <div class="icon-circle">🏠</div>
@@ -28,9 +29,12 @@
   </div>
 
 
+  <!-- 2. Главный экран (Dashboard) -->
   <div id="dashboard-screen" class="screen hidden">
     <div class="header">
-      <img src="avatar.png" alt="avatar" class="icon-img">
+      <div class="avatar">
+        <img src="avatar.png" alt="avatar" class="avatar-img">
+      </div>
       <div>
         <h3>Hello, Balnur!</h3>
         <p class="subtitle">Welcome back to Smart Dorm</p>
@@ -38,7 +42,7 @@
     </div>
 
     <div class="room-card">
-     <img src="investigation_4103933.png" alt="room" class="icon-img">
+      <img src="investigation_4103933.png" alt="room" class="icon-img">
       <div>
         <strong>Your room</strong>
         <p>Apartment 26, Room 2, Block 1</p>
@@ -47,7 +51,7 @@
 
     <div class="grid-menu">
       <div class="menu-item" onclick="showScreen('maintenance-screen')">
-       <img src="question-mark_3628936.png" alt="maintenance" class="icon-img">
+        <img src="question-mark_3628936.png" alt="maintenance" class="icon-img">
         <span>Maintenance</span>
       </div>
       <div class="menu-item" onclick="showScreen('announcements-screen')">
@@ -55,7 +59,7 @@
         <span>Announcements</span>
       </div>
       <div class="menu-item" onclick="showScreen('laundry-screen')">
-       <img src="t-shirt_6973327.png" alt="laundry" class="icon-img">
+        <img src="t-shirt_6973327.png" alt="laundry" class="icon-img">
         <span>Laundry</span>
       </div>
       <div class="menu-item" onclick="showScreen('messages-screen')">
@@ -63,7 +67,7 @@
         <span>Messages</span>
       </div>
       <div class="menu-item" onclick="showScreen('payments-screen')">
-       <img src="cash-register_2470345.png" alt="payments" class="icon-img">
+        <img src="cash-register_2470345.png" alt="payments" class="icon-img">
         <span>Payments</span>
       </div>
       <div class="menu-item" onclick="showScreen('rules-screen')">
@@ -82,9 +86,10 @@
   </div>
 
 
+  <!-- 3. Maintenance Request -->
   <div id="maintenance-screen" class="screen hidden">
     <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
-    <h2> Maintenance Request</h2>
+    <h2>Maintenance Request</h2>
     
     <div class="info-banner">
       Please describe the problem in detail and, if possible, add a photo.
@@ -110,7 +115,7 @@
     <div class="form-group">
       <label>Add a photo (optional)</label>
       <div class="upload-box">
-         Tap to add a photo
+        Tap to add a photo
       </div>
     </div>
 
@@ -118,9 +123,10 @@
   </div>
 
 
+  <!-- 4. Announcements -->
   <div id="announcements-screen" class="screen hidden">
     <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
-    <h2> Announcements</h2>
+    <h2>Announcements</h2>
     
     <div class="announcement-card">
       <strong>Power outage</strong>
@@ -134,9 +140,10 @@
   </div>
 
 
+  <!-- 5. Laundry Booking -->
   <div id="laundry-screen" class="screen hidden">
     <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
-    <h2> Laundry Booking</h2>
+    <h2>Laundry Booking</h2>
     
     <div class="info-banner">
       Select an available washing machine and time slot.
@@ -154,9 +161,11 @@
     <button class="btn-primary" onclick="alert('Стиральная машина забронирована!'); showScreen('dashboard-screen')">Book Slot</button>
   </div>
 
+
+  <!-- 6. Messages -->
   <div id="messages-screen" class="screen hidden">
     <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
-    <h2> Messages</h2>
+    <h2>Messages</h2>
     
     <div class="announcement-card">
       <strong>Dorm Manager</strong>
@@ -165,10 +174,10 @@
   </div>
 
 
-  <!-- 7. Экран: Payments -->
+  <!-- 7. Payments -->
   <div id="payments-screen" class="screen hidden">
     <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
-    <h2> Payments</h2>
+    <h2>Payments</h2>
     
     <div class="room-card">
       <div>
@@ -178,9 +187,11 @@
     </div>
   </div>
 
+
+  <!-- 8. Rules & Info -->
   <div id="rules-screen" class="screen hidden">
     <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
-    <h2> Rules & Info</h2>
+    <h2>Rules & Info</h2>
     
     <div class="info-banner">
       Quiet hours: 23:00 – 07:00.<br>
