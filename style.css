@@ -221,3 +221,9 @@ body {
   cursor: pointer;
   font-size: 14px;
 }
+.icon-img {
+  width: 24px;         
+  height: 24px;     
+  object-fit: contain; 
+  vertical-align: middle;
+}
