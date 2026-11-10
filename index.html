@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
->
+
   <div id="login-screen" class="screen">
     <div class="logo-box">
       <div class="icon-circle">🏠</div>
@@ -24,13 +24,13 @@
     
     <div class="divider">or</div>
     
-    <button class="btn-secondary">Create an account</button>
+    <button class="btn-secondary" onclick="alert('Регистрация временно недоступна')">Create an account</button>
   </div>
 
 
   <div id="dashboard-screen" class="screen hidden">
     <div class="header">
-      <div class="avatar">👤</div>
+      <img src="avatar.png" alt="avatar" class="icon-img">
       <div>
         <h3>Hello, Balnur!</h3>
         <p class="subtitle">Welcome back to Smart Dorm</p>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="room-card">
-      <span class="room-icon">📍</span>
+     <img src="room.png" alt="room" class="icon-img">
       <div>
         <strong>Your room</strong>
         <p>Apartment 26, Room 2, Block 1</p>
@@ -47,43 +47,44 @@
 
     <div class="grid-menu">
       <div class="menu-item" onclick="showScreen('maintenance-screen')">
-        <span class="menu-icon">🛠️</span>
+       <img src="maintenance.png" alt="maintenance" class="icon-img">
         <span>Maintenance</span>
       </div>
-      <div class="menu-item">
-        <span class="menu-icon">📢</span>
+      <div class="menu-item" onclick="showScreen('announcements-screen')">
+        <img src="announcements.png" alt="announcements" class="icon-img">
         <span>Announcements</span>
       </div>
-      <div class="menu-item">
-        <span class="menu-icon">🧺</span>
+      <div class="menu-item" onclick="showScreen('laundry-screen')">
+       <img src="laundry.png" alt="laundry" class="icon-img">
         <span>Laundry</span>
       </div>
-      <div class="menu-item">
-        <span class="menu-icon">💬</span>
+      <div class="menu-item" onclick="showScreen('messages-screen')">
+        <img src="messages.png" alt="messages" class="icon-img">
         <span>Messages</span>
       </div>
-      <div class="menu-item">
-        <span class="menu-icon">💳</span>
+      <div class="menu-item" onclick="showScreen('payments-screen')">
+       <img src="payments.png" alt="payments" class="icon-img">
         <span>Payments</span>
       </div>
-      <div class="menu-item">
-        <span class="menu-icon">📄</span>
+      <div class="menu-item" onclick="showScreen('rules-screen')">
+        <img src="menu.png" alt="menu" class="icon-img">
         <span>Rules & info</span>
       </div>
     </div>
 
     <div class="announcement-section">
       <h4>Recent announcements</h4>
-      <div class="announcement-card">
+      <div class="announcement-card" onclick="showScreen('announcements-screen')" style="cursor: pointer;">
         <strong>Power outage</strong>
         <p>There will be a planned power outage on September 23 from 10:00 to 14:00.</p>
       </div>
     </div>
   </div>
 
-  <!-- Экран 3: Maintenance Request -->
+
   <div id="maintenance-screen" class="screen hidden">
-    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Maintenance Request</button>
+    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
+    <h2> Maintenance Request</h2>
     
     <div class="info-banner">
       Please describe the problem in detail and, if possible, add a photo.
@@ -92,7 +93,12 @@
     <div class="form-group">
       <label>Problem category</label>
       <select>
-        <option>Select category</option>
+        <option value="">Select category</option>
+        <option value="plumbing">Plumbing (Сантехника)</option>
+        <option value="electricity">Electricity (Электрика)</option>
+        <option value="furniture">Furniture (Мебель)</option>
+        <option value="appliances">Appliances (Бытовая техника)</option>
+        <option value="other">Other (Другое)</option>
       </select>
     </div>
 
@@ -104,12 +110,84 @@
     <div class="form-group">
       <label>Add a photo (optional)</label>
       <div class="upload-box">
-        📷 Tap to add a photo
+         Tap to add a photo
       </div>
     </div>
 
     <button class="btn-primary" onclick="alert('Заявка отправлена!'); showScreen('dashboard-screen')">Submit</button>
   </div>
+
+
+  <div id="announcements-screen" class="screen hidden">
+    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
+    <h2> Announcements</h2>
+    
+    <div class="announcement-card">
+      <strong>Power outage</strong>
+      <p>There will be a planned power outage on September 23 from 10:00 to 14:00.</p>
+    </div>
+    
+    <div class="announcement-card">
+      <strong>General Cleaning Day</strong>
+      <p>Shared areas cleaning will take place this Saturday at 11:00 AM.</p>
+    </div>
+  </div>
+
+
+  <div id="laundry-screen" class="screen hidden">
+    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
+    <h2> Laundry Booking</h2>
+    
+    <div class="info-banner">
+      Select an available washing machine and time slot.
+    </div>
+    
+    <div class="form-group">
+      <label>Washing Machine</label>
+      <select>
+        <option>Washing Machine #1 (Free)</option>
+        <option>Washing Machine #2 (Busy)</option>
+        <option>Washing Machine #3 (Free)</option>
+      </select>
+    </div>
+    
+    <button class="btn-primary" onclick="alert('Стиральная машина забронирована!'); showScreen('dashboard-screen')">Book Slot</button>
+  </div>
+
+  <div id="messages-screen" class="screen hidden">
+    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
+    <h2> Messages</h2>
+    
+    <div class="announcement-card">
+      <strong>Dorm Manager</strong>
+      <p>Your maintenance request #104 has been approved.</p>
+    </div>
+  </div>
+
+
+  <!-- 7. Экран: Payments -->
+  <div id="payments-screen" class="screen hidden">
+    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
+    <h2> Payments</h2>
+    
+    <div class="room-card">
+      <div>
+        <strong>Monthly Rent</strong>
+        <p>Status: Paid for September</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="rules-screen" class="screen hidden">
+    <button class="btn-back" onclick="showScreen('dashboard-screen')">← Back to Dashboard</button>
+    <h2> Rules & Info</h2>
+    
+    <div class="info-banner">
+      Quiet hours: 23:00 – 07:00.<br>
+      Visitors allowed until 22:00.
+    </div>
+  </div>
+
 
   <script>
     function showScreen(screenId) {
