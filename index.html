@@ -202,5 +202,29 @@
     }
   </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const SUPABASE_URL = '    ';
+  const SUPABASE_ANON_KEY = '   ';
+  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+ 
+  async function submitMaintenanceRequest() {
+    const category = document.querySelector('select').value;
+    const description = document.querySelector('textarea').value;
+
+    const { data, error } = await supabase
+      .from('maintenance_requests')
+      .insert([{ category: category, description: description, status: 'pending' }]);
+
+    if (error) {
+      alert('Ошибка при отправке: ' + error.message);
+    } else {
+      alert('!');
+      showScreen('dashboard-screen');
+    }
+  }
+</script>
+
 </body>
 </html>
